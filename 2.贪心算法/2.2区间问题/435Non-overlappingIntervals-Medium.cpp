@@ -5,7 +5,7 @@
 using namespace std;
 
 //! 题目：给定多个区间，计算让这些区间互不重叠所需要移除区间的最少个数。起止相连不算重叠。
-//t O()|O()
+//t O(n)|O(1)
 class solution
 {
 public:

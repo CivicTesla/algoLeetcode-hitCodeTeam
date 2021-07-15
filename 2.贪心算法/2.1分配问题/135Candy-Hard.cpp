@@ -2,12 +2,11 @@
 #include <algorithm>//sort()
 #include <vector>//vector<int>数组
 #include <numeric>//accumulate()求和
-
 using namespace std;
 
 //! 糖果分配问题：规则，每个小孩只与旁边相邻两个小孩比，谁分高则谁糖果多；求最少的糖果分配总数
 //t O(2n)|O(1)，从左往右再从右往左遍历，一共两次
-class Solution {
+class solution {
 public:
    
     vector<int> candy(vector<int>& ratings) {
@@ -35,7 +34,7 @@ public:
 int main() {
     int grade[9] = { 1,0,2,5,1,6,4,8,9 };
     vector<int> child(grade, grade+9); //,first=ar,last=ar+3,不包括ar+2
-    Solution solve;
+    solution solve;
 
 // * ----------------------显示分配数组
     vector<int> vec =  solve.candy(child);
