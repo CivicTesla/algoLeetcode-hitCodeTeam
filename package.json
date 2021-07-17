@@ -1,3 +1,4 @@
-dependencies ｛
-	gtest：1.8.1
-｝
+dependencies {
+	gtest：1.8.1,// gtest测试框架，用于构造沙盒，测试算法正确与否
+    timeTest：timeTest.h //用于测试程序运行时间
+}
