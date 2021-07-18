@@ -1,4 +1,27 @@
-dependencies {
-	gtest：1.8.1,// gtest测试框架，用于构造沙盒，测试算法正确与否
-    timeTest：timeTest.h //用于测试程序运行时间
+{
+  "name": "algoLeetcode-hitCodeTeam",
+  "version": "1.0.0",
+  "description": "[[_TOC_]]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CivicTesla/algoLeetcode-hitCodeTeam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CivicTesla/algoLeetcode-hitCodeTeam/issues"
+  },
+  "homepage": "https://github.com/CivicTesla/algoLeetcode-hitCodeTeam#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^9.0.2",
+    "gtest":"./win-gtest,google测试框架",
+    "timeTest":"./include/test/timeTest.h,自定义时间测试",
+    "":""
+  }
 }
