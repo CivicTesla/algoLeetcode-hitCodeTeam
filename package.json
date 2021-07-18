@@ -17,11 +17,8 @@
     "url": "https://github.com/CivicTesla/algoLeetcode-hitCodeTeam/issues"
   },
   "homepage": "https://github.com/CivicTesla/algoLeetcode-hitCodeTeam#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "mocha": "^9.0.2",
-    "gtest":"./win-gtest,google测试框架",
-    "timeTest":"./include/test/timeTest.h,自定义时间测试",
-    "":""
+  "dependencies": {
+      "gtest":"win-gtest文件夹，google测试框架",
+      "timeTest":"./include/test/timeTest.h,仿gtest自定义的程序运行时间测试"
   }
 }
