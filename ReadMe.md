@@ -39,7 +39,7 @@ HitCode 即打码
  pip3 install -r requirements.txt 或 
  conda install -r requirements.txt
  ```
-6. 其他文件说明
+6. 其他文件说明：
    6.1 js使用node管理第三方包；package.json的dependencies和devDependencies用于记录所有的包，框架，其他语言手动输入
    
  
