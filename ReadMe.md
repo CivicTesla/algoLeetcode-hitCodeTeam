@@ -39,7 +39,7 @@ include\test\chai.js
 java单元测试工具
 4.2 java包工具mavan的vscode教程：https://www.bilibili.com/video/av62014282
 ```
-5. py 
+5.py 
 
 5.1 py使用conda或pip管理第三方包，记录requirements.txt，便捷安装命令：
 ```bash
