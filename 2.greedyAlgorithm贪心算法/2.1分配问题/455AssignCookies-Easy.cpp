@@ -1,6 +1,6 @@
-#include <iostream>//cout
-#include <algorithm>//sort()
-#include <vector>//vector<int>数组
+#include <iostream>
+#include <algorithm>
+#include <vector>
 using namespace std;
 //t O(n)|O(1),n个小孩或m个饼干，当其中一个被while完的时候，程序出结果，所以最大的时间复杂度O（n）
 int findContentChildren(vector<int>& children, vector<int>& cookies) {

@@ -14,7 +14,7 @@
 #include <algorithm>
 #include <vector>
 #include <numeric>
-#include "../../timeTest.h"
+
 
 using namespace std;
 
@@ -78,22 +78,18 @@ public:
         return count >= n;
     }
 };
+int main(){
+    Solution solve;
+    int ele[] = { 1,0,0,0,1,0,1,0,0,0,0,1,0,0,0 };
+    vector<int> vec(ele, ele+sizeof(ele)/sizeof(int));//sizeof(ele)用于统计int ele[]所有元素的字节数，sizeof(int)表示单个int类型所占字节数，两者相除即ele[]中元素的个数
+    cout << solve.canPlaceFlowers1(vec,1) << endl;//* 返回1表示true，0表示false
 
-    TimeTEST(test_1)
-    {
-        std::cout << "this is test_1" << std::endl;
-        Solution solve;
-        int ele[] = { 1,0,0,0,1,0,1,0,0,0,0,1,0,0,0 };
-        vector<int> vec(ele, ele+sizeof(ele));//sizeof(ele)用于统计int ele[]对象的长度
-        cout << solve.canPlaceFlowers0(vec,1) << endl;//* 返回1表示true，0表示false
-    }
+// t------测试c艹的bool返回值
+    bool t;
+    t = 1>2;
+    cout << t << endl;
+// t------测试c艹的bool返回值 结束
 
-    TimeTEST(test_2)
-    {
-        std::cout << "this is test_2" << std::endl;
-        // t------测试c艹的bool返回值
-        bool t;
-        t = 1>2;
-        cout << t << endl;
-        // t------测试c艹的bool返回值 结束
-    }
+
+
+}
