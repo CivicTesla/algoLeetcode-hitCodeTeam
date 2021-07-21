@@ -5,7 +5,7 @@
 using namespace std;
 
 class Solution {
-public://* public关键字暴露类Solution内部的对象，才能被其他类如main(),TimeTEST()访问到
+public:
     //t O()|O()
     vector<int> func0(vector<int> vec,int target){
     }
@@ -20,15 +20,7 @@ int main() {
     vector<int> vec{2,7,11,15};
     int target = 1 ;
     //* 构造二维数组
-    int element0[2] = {1,2};
-    vector<int> vec0(element0, element0+2);
-    int element1[2] = {1,2};
-    vector<int> vec1(element1, element1+2);
-    int element2[2] = {1,2};
-    vector<int> vec2(element2, element2+2);
-    
-    vector<int> ele[3] = {vec0,vec1,vec2};
-    vector<vector<int>> interval(ele,ele+sizeof(ele)/sizeof(vector<int>));
+    vector<vector<int>> vec{{1,0,1,1,0,1,0,1},{1,0,1,1,0,1,1,1},{0,0,0,0,0,0,0,1}};
 
     //* 类实例化
     Solution solve;

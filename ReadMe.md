@@ -19,17 +19,34 @@ HitCode 即打码
 
 ### 其他文件说明
 - package.json用于记录所用的包，框架；
+- .gitkeep 无用文件，只为向git证明该文件夹存在
 
 ***
 ## 算法笔记
-C++的cout输出不了vector<>类型数组，因此用下面的方法输出
+
+创建n维数组
 ```c++
-// 构造数组vec
+//* 构造一维数组vec
 int ele[] = {2,7,11,15};
 vector<int> vec0(ele, ele+sizeof(ele)/sizeof(int));//sizeof(ele)用于统计int ele[]所有元素的字节数，sizeof(int)表示单个int类型所占字节数，两者相除即ele[]中元素的个数
 // 简约写法
 vector<int> vec1{2,7,11,15};
 
+//* 构造二维数组
+int element0[] = {1,0,1,1,0,1,0,1};
+vector<int> vec0(element0, element0+sizeof(element0)/sizeof(int));
+int element1[] = {1,0,1,1,0,1,1,1};
+vector<int> vec1(element1, element1+sizeof(element1)/sizeof(int));
+int element2[] = {0,0,0,0,0,0,0,1};
+vector<int> vec2(element2, element2+sizeof(element2)/sizeof(int));
+
+vector<int> ele[] = {vec0,vec1,vec2};
+vector<vector<int>> vec(ele,ele+sizeof(ele)/sizeof(vector<int>));
+// 简约写法
+vector<vector<int>> vec{{1,0,1,1,0,1,0,1},{1,0,1,1,0,1,1,1},{0,0,0,0,0,0,0,1}};
+```
+输出数组vec，C++的cout输出不了vector<>类型数组，因此用下面的方法输出
+```c++
 // 输出数组vec
 // * ----------------------显示数组
     vector<int> vec =  vec0;
@@ -40,7 +57,6 @@ vector<int> vec1{2,7,11,15};
 	}
     cout << endl;// * ----------------------显示数组结束
 ```
-
 break的用法：
 當滿足中斷條件時，就離開迴圈( while 或 for )
 ```c++
