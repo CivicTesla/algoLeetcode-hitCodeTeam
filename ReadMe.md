@@ -9,13 +9,24 @@ HitCode 即打码
 
 ## tip：
 ### 第三方包的简单使用
-- 仓库根目录的include/文件夹用于存放一些自定义包，第三方库等，可供便捷地调用
+仓库根目录的include/文件夹用于存放一些自定义包，第三方库等，可供便捷地调用;
+引用即可使用
+1. 仿gtest框架，自定义的程序运行时间测试。```#include "include/test/timeTest.h"```
+2. print.h，简化输出，引入后，使用print(变量)即可输出，支持int，int []，vector数组。
 ```c++
-//引用即可使用，比如仿gtest框架，自定义的程序运行时间测试，文件位于：第三方包简单使用/timeTest.cpp，代码如下：
-#include "include/test/timeTest.h"
-```
+ #include "../../include/breaknine/print.h" 
+//  输出整数
+ print(i)
+//  输出数组，要输入数组的个数
+ print(list,sizeof(list)/sizeof(list[1]));
+//  输出vector数组
+ print(vec)
+//  c++ printf
+int a = 1;
+printf("%d\n",i);
+ ```
 ### gtest
-- win-gtest文件夹：win下，gtest的使用示范
+- google测试框架，位于win-gtest文件夹
 
 ### 其他文件说明
 - package.json用于记录所用的包，框架；
@@ -24,7 +35,7 @@ HitCode 即打码
 ***
 ## 算法笔记
 
-创建n维数组
+创建n维数组：
 ```c++
 //* 构造一维数组vec
 int ele[] = {2,7,11,15};
@@ -45,7 +56,8 @@ vector<vector<int>> vec(ele,ele+sizeof(ele)/sizeof(vector<int>));
 // 简约写法
 vector<vector<int>> vec{{1,0,1,1,0,1,0,1},{1,0,1,1,0,1,1,1},{0,0,0,0,0,0,0,1}};
 ```
-输出数组vec，C++的cout输出不了vector<>类型数组，因此用下面的方法输出
+输出数组vec：
+C++的cout输出不了vector<>类型数组，因此用下面的方法输出
 ```c++
 // 输出数组vec
 // * ----------------------显示数组

@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <vector>
 #include "../../include/test/timeTest.h"
+#include "../../include/breaknine/print.h"
 using namespace std;
 
 class Solution {
@@ -26,15 +27,5 @@ int main() {
     Solution solve;
     
     // * ------显示整数结果
-    cout << solve.func1(vec,target) << endl;
-
-    // * ------显示整数结果结束
-    // * ----------------------显示数组
-    vector<int> vec =  solve.func0(vec,target);//调用func
-    vector<int>::iterator ite = vec.begin();
-	for (; ite != vec.end(); ite++){
-		cout << *ite;
-		cout << ",";
-	}
-    cout << endl;// * ----------------------显示数组结束
+    print(solve.func0(vec,target));
 }
