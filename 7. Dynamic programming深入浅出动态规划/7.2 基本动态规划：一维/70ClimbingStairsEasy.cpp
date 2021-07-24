@@ -39,7 +39,7 @@ public:
 TimeTEST(test_1)
 {
     std::cout << "this is test_1" << std::endl;
-    int input = 148;//? 48到100多附近的数，输出结果为负数
+    int input = 148000;//? 48到100多附近的数，输出结果为负数
     Solution solve;
     print(solve.climbStairs0(input));
 
