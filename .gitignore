@@ -1,0 +1,23 @@
+# 忽略所有以下文件夹
+.vscode/
+node_modules/
+# 忽略当前目录other文件夹
+/other/
+/include/
+/win-gtest/
+/codeblocks_debug/
+/package第三方包简单试用/
+# 忽略当前目录的文件
+/temp.cpp
+/批量创建.gitkeep文件.bat
+/tip.cpp
+/LeetCode 101 - A LeetCode Grinding Guide (C++ Version).pdf
+/LeetCode 101 - A LeetCode Grinding Guide (C++ Version).docx
+/包.json
+/readme.md
+# 忽略所有以下文件,.class是java编译中间文件，package-lock.json是npm安装包时的记录文件，.exe是c++的可执行文件
+*.exe
+*.cpp
+package-lock.json
+.class
+tempCodeRunnerFile.cpp
