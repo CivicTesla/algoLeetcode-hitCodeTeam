@@ -38,7 +38,7 @@ string input =  "2-1-1";
 char c0 = "2"[0];
 char c = input[0];
 printf("%c",c);
- ```
+```
 ### 1.1 gtest
 - google测试框架，位于win-gtest文件夹
 
@@ -46,10 +46,27 @@ printf("%c",c);
 - package.json用于记录所用的包，框架；
 - .gitkeep 无用文件，只为向git证明该文件夹存在
 - codeblocks_debug,codeblocks编辑器debug
-***
+
+### <font color=00FFFF>1.3 O()|O()</font>
+
+<p>数据量越大，需要耗时越多，但是不同时间复杂度随数据量增长的速度是不一样的。有的算法对数据量增长比较敏感，数据量增长一点就会增加非常多的运算次数；有的算法对数据量增长不敏感，运行时间和数据规模呈线性关系。比 <img src="https://www.zhihu.com/equation?tex=O%28n%5E3+%29" alt="[公式]" eeimg="1" data-formula="">O(n^3 ) 还大的算法复杂度包括 <img src="https://www.zhihu.com/equation?tex=O%282%5En%29" alt="[公式]" eeimg="1" data-formula=""> O(2^n)和 <img src="https://www.zhihu.com/equation?tex=O%28n%21%29" alt="[公式]" eeimg="1" data-formula="">O(n!) ，即使 <img src="https://www.zhihu.com/equation?tex=n+" alt="[公式]" eeimg="1" data-formula=" ">n 只有几十，其运算次数也是天文数字，这就是很多搜索回溯算法不能处理稍大规模数据的原因。log(n)最不敏感</p>
+
+<img src="readmePic\timeSpace.jpg" width=50% >
+
+
+
+
+
+
+
+
+
+
+
 # <font color=grer>2.算法笔记:</font>
 
 2.1 创建n维数组：
+
 ```c++
 //* 2.1.1构造一维数组vec
 int ele[] = {2,7,11,15};

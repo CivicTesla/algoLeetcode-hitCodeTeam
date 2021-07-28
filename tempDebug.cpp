@@ -1,69 +1,101 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <queue>
+#include <numeric>//iota
 #include "./include/breaknine/print.h"
 using namespace std;
-// ！用两种颜色对图中的节点进行着色，并且保证相邻的节点颜色不同，那么图为二分
+
+//!RedundantConnection,冗余连接
+
+class UF
+{
+    vector<int> id;
+
+public:
+    UF(int n) : id(n)
+    {
+        iota(id.begin(), id.end(), 0); // iota函数可以把数组初始化为0到n-1
+    }
+    int find(int p)
+    {
+        while (p != id[p])
+        {
+            p = id[p];
+        }
+        return p;
+    }
+    void connect(int p, int q)
+    {
+        id[find(p)] = find(q);
+    }
+    bool isConnected(int p, int q)
+    {
+        return find(p) == find(q);
+    }
+};
 class Solution
 {
 public:
     //t O()|O()
-    // 给节点染色，用 0 表示未检查的节点，用 1 和 2 表示两种不同的颜色，若能成功染完，说明是二向图
-    bool isBipartite(vector<vector<int>> &graph)
+    vector<int> findRedundantConnection(vector<vector<int>> &edges)
     {
-        int n = graph.size();
-        if (n == 0)
+        int n = edges.size();
+        UF uf(n + 1);
+        for (auto e : edges)
         {
-            return true;
-        }
-        vector<int> color(n, 0);
-        queue<int> q;//与栈一样，是一种线性存储结构,先进先出,在队尾添加元素，在队头删除元素
-        for (int i = 0; i < n; ++i)//* 遍历所有图的节点
-        {
-            if (!color[i])//非0则true，未染色，将当前节点i送入队，并染颜色1
+            int u = e[0], v = e[1];
+            if (uf.isConnected(u, v))
             {
-                q.push(i);
-                color[i] = 1;
+                return e;
             }
-            while (!q.empty())//只要队列不是空的，就进行while循环
-            {
-                int node = q.front();
-                q.pop();
-                for (const int &j : graph[node])//循环取出graph[node]的元素，赋予给j；graph[node]，当前节点的邻接点
-                {
-                    if (color[j] == 0)//判断邻节点是否染染色
-                    {
-                        q.push(j);
-                        color[j] = color[node] == 2 ? 1 : 2;//给邻接点染上与当前节点不同的颜色
-                    }
-                    else if (color[node] == color[j])//如果遇到邻接点有颜色，且颜色与当前节点相同，返回false，算法结束，该图不可二分
-                    {
-                        return false;
-                    }
-                }
+            uf.connect(u, v);
+        }
+        return vector<int>{-1, -1};
+    }
+};
+// todo1 leetcode中文官网答案
+// 原理：并查集
+// t O()|O()
+class Solution1 {
+public:
+    int Find(vector<int>& parent, int index) {//查找节点是否有连接；如果1已经连接2，1和3有连接，此时将2和3连接，1->2->3
+        if (parent[index] != index) {
+            parent[index] = Find(parent, parent[index]);
+        }
+        return parent[index];
+    }
+
+    void Union(vector<int>& parent, int index1, int index2) {//建立两个节点的连接
+        parent[Find(parent, index1)] = Find(parent, index2);
+    }
+
+    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+        int nodesCount = edges.size();//边的个数，3边
+        vector<int> parent(nodesCount + 1);//父节点4个,默认为0
+        for (int i = 1; i <= nodesCount; ++i) {
+            parent[i] = i;//0,1,2,3
+        }
+        for (auto& edge: edges) {
+            int node1 = edge[0], node2 = edge[1];
+            if (Find(parent, node1) != Find(parent, node2)) {//* 若两个节点没有连接，则将他们联系在一起
+                Union(parent, node1, node2);
+            } else {//* 若两个节点在parent中有连接，则说明此次循环的edge是多余的，算法结束，返回该边
+                return edge;
             }
         }
-        return true;
+        return vector<int>{};
     }
 };
 
 // 测试
 int main()
 {
-    // Input: [[1,3], [0,2], [1,3], [0,2]]
-    // 0—— ——1
-    // |     |
-    // |     |
-    // 3—— ——2
-    // Output: true
-    // 构造二维数组表示邻接链表，邻接链表表示图
-    vector<vector<int>> vec{{1, 3}, {0, 2}, {1, 3}, {0, 2}};
+    // 构造二维数组
+    vector<vector<int>> vec{{1,2}, {1,3}, {2,3}};
 
     // 类实例化
-    Solution solve;
+    Solution1 solve;
 
-    // 显示结果，表示图是否二分
-    if (solve.isBipartite(vec))
-        print("true");
+    // 显示结果
+    printv(solve.findRedundantConnection(vec));
 }
