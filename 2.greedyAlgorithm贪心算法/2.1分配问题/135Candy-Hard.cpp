@@ -1,7 +1,8 @@
-#include <iostream>//cout
+#include <iostream>//std::cout
 #include <algorithm>//sort()
 #include <vector>//vector<int>数组
 #include <numeric>//accumulate()求和
+
 using namespace std;
 
 //! 糖果分配问题：规则，每个小孩只与旁边相邻两个小孩比，谁分高则谁糖果多；求最少的糖果分配总数
@@ -40,12 +41,12 @@ int main() {
     vector<int> vec =  solve.candy(child);
     vector<int>::iterator ite = vec.begin();
 	for (; ite != vec.end(); ite++){
-		cout << *ite;
-		cout << ",";
+		std::cout << *ite;
+		std::cout << ",";
 	}
-    cout << endl;// * ----------------------显示分配数组结束
+    std::cout << endl;// * ----------------------显示分配数组结束
 
-    cout << accumulate(vec.begin(), vec.end(), 0) << endl;//*统计总数
-    // cout << solve.candy(child) << endl;
+    std::cout << accumulate(vec.begin(), vec.end(), 0) << endl;//*统计总数
+    // std::cout << solve.candy(child) << endl;
     // system("pause"); exe文件单独双击运行时可设置此代码令其暂停显示；终端运行无需设置
 }
